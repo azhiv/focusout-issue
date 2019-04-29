@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let focusedOut = false;
+
+    const input = document.querySelector('#input');
+    if (input) {
+      input.addEventListener('focusout', function() {
+        debugger;
+        focusedOut = true;
+      });
+    }
+
+    document.querySelector('#input').focus();
+    document.querySelector('#button-to-click').focus();
+
+    let h1 = document.querySelector('h1');
+    if (!focusedOut) {
+      h1.innerHTML = 'Fail';
+      h1.style.cssText = 'color:red';
+    } else {
+      h1.innerHTML = 'Success';
+      h1.style.cssText = 'color:green';
+    }
+  });
+</script>
+
+<input id="input"/>
+<button id="button-to-click">Click</button>
+
+<h1></h1>
+</body>
+</html>
